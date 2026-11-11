@@ -135,3 +135,4 @@ pack.mcmeta：1.16.5 为 pack_format 6、1.20.1 为 15（模板已配）。
 - 本地 jar 依赖的写法（离线构建）：把 jar 放 `libs/`，`compileOnly files('libs/xxx.jar')`；ForgeGradle 6 不需要 `fg.deobf` 处理已发布的 mod jar。整合包内 `libraries/` 的依赖可用本地 Maven 镜像（maven-layout）离线解析。
 - 需要改第三方 mod 的行为时，优先写**独立 Mixin 补丁 mod**（见 minecraft-mixins），而不是直接改原 jar；只有 Mixin 表达不了（改常量、改结构）才做字节码补丁，且必须保留原 jar 备份。
 - 1.20.1 运行环境（整合包）常用 Forge 47.4.x；模板钉 47.3.0 作为编译下限，`mods.toml` 的 `versionRange` 写 `[47,)` 即可兼容更高 47.x。
+- **本机离线构建（当前工作站）**：`maven.minecraftforge.net` 不可达时，`forge:1.20.1-47.3.0:userdev` 会解析失败（2026-11-11 实测，`gradlew help` 4m54s 后 BUILD FAILED）。复用 `_build/mdk/`（Forge 47.4.28、Gradle 8.8、`localrepo/` 镜像）或其仓库配置；新模板工程需先准备本地 Maven 镜像或可访问的镜像源。

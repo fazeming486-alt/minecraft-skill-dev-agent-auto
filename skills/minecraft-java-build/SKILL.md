@@ -108,6 +108,7 @@ plugins {
 5. **依赖找不到**：仓库没配齐（第 4 节逐个核对）；SNAPSHOT 依赖旧坐标可能已下线，改用官方模板的坐标。
 6. **`JAVA_HOME` 指向错误 JDK**：多 JDK 机器上最常见，`java -version` 与编译级别对不上时报错。
 7. **代理/镜像**：国内网络下载慢可用 Gradle 镜像（如阿里云 mirror）替换 repository URL，但注意镜像不全。
+8. **Forge userdev 解析失败**：`Could not resolve net.minecraftforge:forge:<ver>:userdev` 是仓库不可达/镜像缺工件，不是 Gradle 语法错。优先用工程内 `localrepo/` 本地 Maven 镜像或可用镜像源，并确认 `maven.minecraftforge.net` 可访问。
 
 ## 7. Multi-loader 项目（进阶）
 

@@ -70,7 +70,7 @@ node ~/.qoder/skills/_minecraft-dev/mcdev.mjs gradle \
 - 生成工程的 Gradle 8.8 wrapper 可启动（JDK 17 实测）。
 - `mcdev.mjs gradle --task --version` 与超时/输出截断路径实测。
 - 修复了上游模板的一个问题：项目名是 kebab-case，但原先直接用作 Forge/NeoForge 的 `modId`；官方要求 `^[a-z][a-z0-9_]{1,63}$`，现已改为下划线变体（如 `my-mod` → `my_mod`），显示名与 jar 名仍保留连字符。
-- 未跑完整 ForgeGradle 编译（需要下载 Forge 47.3.0 等依赖）；模板与构建脚本来自上游已真机构建过的版本。
+- 完整 ForgeGradle 配置在本机未通过：`net.minecraftforge:forge:1.20.1-47.3.0:userdev` 解析失败（`maven.minecraftforge.net` 不可达/镜像缺工件），不是模板语法错误；已有离线 MDK 可复用 `localrepo/`。模板与构建脚本来自上游已真机构建过的版本。
 
 ## 来源与许可
 
