@@ -1,0 +1,19 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="{{modId}}"
+version="${file.jarVersion}"
+displayName="{{name}}"
+description="{{name}} Forge mod"
+
+[[dependencies.{{modId}}]]
+modId="forge"
+versionRange="[36,)"
+mandatory=true
+
+[[dependencies.{{modId}}]]
+modId="minecraft"
+versionRange="[1.16.5,1.17)"
+mandatory=true
